@@ -153,7 +153,8 @@ case "$1" in
 	south) dir=top; falldir=bottom; x=0; y="$step";;
 esac
 
-bspc node -z "$dir" "$x" "$y" || bspc node -z "$falldir" "$x" "$y"'
+bspc node -z "$dir" "$x" "$y" || bspc node -z "$falldir" "$x" "$y"
+'
 ################################################################################################
 
 ### LINKS ###
@@ -189,32 +190,21 @@ menu(){
 		1) echo
 				sleep 1 ; echo -e "\n\t\t GIT CLONE $BREDTEXTWHITE BSPWM $FIMCOR \n" && cd ~/Descargas/ && git clone https://github.com/baskerville/bspwm.git || echo -e "\n\t\t GIT CLONE BSPWM $BREDTEXTWHITE ERROR $FIMCOR \n"
 				sleep 1 ; echo -e "\n\t\t GIT CLONE $BREDTEXTWHITE SXHKD $FIMCOR \n" && cd ~/Descargas/ && git clone https://github.com/baskerville/sxhkd.git || echo -e "\n\t\t GIT CLONE SXHKD $BREDTEXTWHITE ERROR $FIMCOR \n"
-
-				sleep 2 ; cd ~/Descargas/bspwm/ && make && echo -e "\n\t\t $BREDTEXTWHITE MAKE BSPWM $FIMCOR \n" || echo -e "ERROR COMPILACION /bspwm"
+				sleep 2 ; cd ~/Descargas/bspwm/ && make || echo -e "ERROR COMPILACION /bspwm"
 				sleep 2 ; cd ~/Descargas/sxhkd/ && make && echo -e "\n\t\t $BREDTEXTWHITE MAKE SXHKD $FIMCOR \n" || echo -e "ERROR COMPILACION /sxhkd"
-
 				sleep 2 ; cd ~/Descargas/bspwm/ && sudo make install && echo -e "\n\t\t $BREDTEXTWHITE BSPWM INSTALADO $FIMCOR \n" || echo -e "\n\t\t ERRO INSTALACION $BREDTEXTWHITE BSPWM $FIMCOR \n"
 				sleep 2 ; cd ~/Descargas/sxhkd/ && sudo make install && echo -e "\n\t\t $BREDTEXTWHITE SXHKD INSTALADO $FIMCOR \n" || echo -e "\n\t\t ERRO INSTALACION $BREDTEXTWHITE SXHKD $FIMCOR \n"
-
 				sleep 2 ; echo -e "\n\t\t $BREDTEXTWHITE CARGANDO FICHEROS DE EJEMPLO $FIMCOR \n"
-
 				sleep 2 ; mkdir ~/.config/bspwm || echo -e "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/bspwm $FIMCOR \n"
 				sleep 2 ; mkdir ~/.config/sxhkd || echo -e "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/sxhkd $FIMCOR \n"
-
 				sleep 2 ; cd ~/Descargas/bspwm/ && cp examples/bspwmrc ~/.config/bspwm/ && chmod +x ~/.config/bspwm/bspwmrc || echo "\n\t\t ERROR AL COPIAR CARPETA EN $BREDTEXTWHITE ~/.config/bspwm $FIMCOR \n"
 				sleep 2 ; cd ~/Descargas/bspwm/ && cp examples/sxhkdrc ~/.config/sxhkd/ && chmod +x ~/.config/sxhkd/sxhkdrc || echo "\n\t\t ERROR AL COPIAR CARPETA EN $BREDTEXTWHITE ~/.config/sxhkd $FIMCOR \n"
-
 				sleep 2 ; echo -e "\n\t\t EDITANDO ARCHIVO DE CONFIGURACION $BREDTEXTWHITE SXHKDRC $FIMCOR \n"
-
-				sleep 2 ; echo -e "$texto_sxhkdrc" > ~/.config/sxhkd/sxhkdrc && echo -e "\n\t\t SXHKDRC COPIADO CON SUCESO $FIMCOR \n" || echo -e "ERROR AL ACTUALIZAR SXHKDRC"
-
+				sleep 2 ; echo -e "$texto_sxhkdrc" > ~/.config/sxhkd/sxhkdrc && echo -e "\n\t\t $BREDTEXTWHITE SXHKDRC COPIADO CON SUCESO $FIMCOR \n" || echo -e "ERROR AL ACTUALIZAR SXHKDRC"
 				sleep 2 ; echo -e "\n\t\t $BREDTEXTWHITE CREANDO ARCHIVO BSPWM_RESIZE $FIMCOR \n"
-
-
-				sleep 2 ; mkdir ~/.config/bspwm/scripts/ || echo 'CREANDO CARPETA SCRIPTS EN ~/.config/bspwm/scripts/'
-				sleep 2 ; echo -e "$bspwm_resize" > ~/.config/bspwm/scripts/bspwm_resize; chmod +x ~/.config/bspwm/scripts/bspwm_resize && echo -e "\n\t\t BSPWM_RESIZE COPIADO CON SUCESO $FIMCOR \n" || echo -e "ERROR AL COPIAR BSPWM_RESIZE"
-
-
+				sleep 2 ; mkdir ~/.config/bspwm/scripts/ && echo -e 'CREADO CARPETA SCRIPTS EN ~/.config/bspwm/' || echo -e 'ERROR AL CREAR CARPETA SCRIPTS EN ~/.config/bspwm/'
+				sleep 2 ; echo -e "$bspwm_resize" > ~/.config/bspwm/scripts/bspwm_resize; chmod +x ~/.config/bspwm/scripts/bspwm_resize && echo -e "\n\t\t $BREDTEXTWHITE BSPWM_RESIZE COPIADO CON SUCESO $FIMCOR \n" || echo -e "ERROR AL COPIAR BSPWM_RESIZE"
+				menu
 			;;
 		D|d) echo
 			;;
