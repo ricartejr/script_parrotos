@@ -198,11 +198,11 @@ menu(){
 
 				sleep 2 ; echo -e "\n\t\t $BREDTEXTWHITE CARGANDO FICHEROS DE EJEMPLO $FIMCOR \n"
 
-				sleep 2 ; mkdir ~/.config/bspwm || echo "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/bspwm $FIMCOR \n"
-				sleep 2 ; mkdir ~/.config/sxhkd || echo "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/sxhkd $FIMCOR \n"
+				sleep 2 ; mkdir ~/.config/bspwm || echo -e "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/bspwm $FIMCOR \n"
+				sleep 2 ; mkdir ~/.config/sxhkd || echo -e "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/sxhkd $FIMCOR \n"
 
 				sleep 2 ; cd ~/Descargas/bspwm/ && cp examples/bspwmrc ~/.config/bspwm/ && chmod +x ~/.config/bspwm/bspwmrc || echo "\n\t\t ERROR AL COPIAR CARPETA EN $BREDTEXTWHITE ~/.config/bspwm $FIMCOR \n"
-				sleep 2 ; cd ~/Descargas/sxhkd/ && cp examples/sxhkdrc ~/.config/sxhkd/ && chmod +x ~/.config/sxhkd/sxhkdrc || echo "\n\t\t ERROR AL COPIAR CARPETA EN $BREDTEXTWHITE ~/.config/sxhkd $FIMCOR \n"
+				sleep 2 ; cd ~/Descargas/bspwm/ && cp examples/sxhkdrc ~/.config/sxhkd/ && chmod +x ~/.config/sxhkd/sxhkdrc || echo "\n\t\t ERROR AL COPIAR CARPETA EN $BREDTEXTWHITE ~/.config/sxhkd $FIMCOR \n"
 
 				sleep 2 ; echo -e "\n\t\t EDITANDO ARCHIVO DE CONFIGURACION $BREDTEXTWHITE SXHKDRC $FIMCOR \n"
 
@@ -212,9 +212,8 @@ menu(){
 
 
 				sleep 2 ; mkdir ~/.config/bspwm/scripts/ || echo 'CREANDO CARPETA SCRIPTS EN ~/.config/bspwm/scripts/'
-				sleep 2 ; echo -e "$bspwm_resize" > ~/.config/bspwm/scripts/bspwm_resize; chmod +x ~/.config/bspwm/scripts/bspwm_resize && echo -e "\n\t\t SXHKDRC COPIADO CON SUCESO $FIMCOR \n" || echo -e "ERROR AL ACTUALIZAR SXHKDRC"
+				sleep 2 ; echo -e "$bspwm_resize" > ~/.config/bspwm/scripts/bspwm_resize; chmod +x ~/.config/bspwm/scripts/bspwm_resize && echo -e "\n\t\t BSPWM_RESIZE COPIADO CON SUCESO $FIMCOR \n" || echo -e "ERROR AL COPIAR BSPWM_RESIZE"
 
-				sleep 2 ; echo -e "$texto_sxhkdrc" > ~/.config/sxhkd/sxhkdrc 
 
 			;;
 		D|d) echo
