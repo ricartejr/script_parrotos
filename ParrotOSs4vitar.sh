@@ -4,6 +4,8 @@
 
 BREDTEXTWHITE="\e[41;37;01m"
 BREDTEXTWHITEP="\e[41;37;05m"
+SUBRAYAR="\E[4m"
+RESALTAR="\E[7m"
 FIMCOR="\e[m"
 
 ################################################################################################
@@ -222,7 +224,7 @@ menu(){
 		5) echo
 				clear
 				echo -e "\n\t\t $BREDTEXTWHITEP Finalizando Script... $FIMCOR \n"
-				sleep 2
+				sleep 1
 				exit 0
 			;;
 		*) echo
