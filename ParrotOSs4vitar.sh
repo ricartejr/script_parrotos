@@ -194,10 +194,11 @@ menu(){
 		1) echo
 				sleep 1 ; echo -e "\n\t\t GIT CLONE $BREDTEXTWHITE BSPWM $FIMCOR \n" && cd ~/Descargas/ && git clone https://github.com/baskerville/bspwm.git || echo -e "\n\t\t GIT CLONE BSPWM $BREDTEXTWHITE ERROR $FIMCOR \n"
 				sleep 1 ; echo -e "\n\t\t GIT CLONE $BREDTEXTWHITE SXHKD $FIMCOR \n" && cd ~/Descargas/ && git clone https://github.com/baskerville/sxhkd.git || echo -e "\n\t\t GIT CLONE SXHKD $BREDTEXTWHITE ERROR $FIMCOR \n"
-				sleep 2 ; cd ~/Descargas/bspwm/ && make || echo -e "ERROR COMPILACION /bspwm"
+				sleep 2 ; cd ~/Descargas/bspwm/ && make && echo -e "\n\t\t $BREDTEXTWHITE MAKE BSPWM $FIMCOR \n" || echo -e "ERROR COMPILACION /bspwm"
 				sleep 2 ; cd ~/Descargas/sxhkd/ && make && echo -e "\n\t\t $BREDTEXTWHITE MAKE SXHKD $FIMCOR \n" || echo -e "ERROR COMPILACION /sxhkd"
 				sleep 2 ; cd ~/Descargas/bspwm/ && sudo make install && echo -e "\n\t\t $BREDTEXTWHITE BSPWM INSTALADO $FIMCOR \n" || echo -e "\n\t\t ERRO INSTALACION $BREDTEXTWHITE BSPWM $FIMCOR \n"
 				sleep 2 ; cd ~/Descargas/sxhkd/ && sudo make install && echo -e "\n\t\t $BREDTEXTWHITE SXHKD INSTALADO $FIMCOR \n" || echo -e "\n\t\t ERRO INSTALACION $BREDTEXTWHITE SXHKD $FIMCOR \n"
+				sleep 2 ; sudo apt install bspwm -y && echo -e "\n\t\t INSTALANDO $BREDTEXTWHITE BSPWM $FIMCOR \n"
 				sleep 2 ; echo -e "\n\t\t $BREDTEXTWHITE CARGANDO FICHEROS DE EJEMPLO $FIMCOR \n"
 				sleep 2 ; mkdir ~/.config/bspwm || echo -e "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/bspwm $FIMCOR \n"
 				sleep 2 ; mkdir ~/.config/sxhkd || echo -e "\n\t\t ERROR AL CREAR CARPETA EN $BREDTEXTWHITE ~/.config/sxhkd $FIMCOR \n"
@@ -208,6 +209,7 @@ menu(){
 				sleep 2 ; echo -e "\n\t\t $BREDTEXTWHITE CREANDO ARCHIVO BSPWM_RESIZE $FIMCOR \n"
 				sleep 2 ; mkdir ~/.config/bspwm/scripts/ && echo -e 'CREADO CARPETA SCRIPTS EN ~/.config/bspwm/' || echo -e 'ERROR AL CREAR CARPETA SCRIPTS EN ~/.config/bspwm/'
 				sleep 2 ; echo -e "$bspwm_resize" > ~/.config/bspwm/scripts/bspwm_resize; chmod +x ~/.config/bspwm/scripts/bspwm_resize && echo -e "\n\t\t $BREDTEXTWHITE BSPWM_RESIZE COPIADO CON SUCESO $FIMCOR \n" || echo -e "ERROR AL COPIAR BSPWM_RESIZE"
+				sleep 2
 				menu
 			;;
 		2) echo
