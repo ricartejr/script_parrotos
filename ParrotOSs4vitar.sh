@@ -136,7 +136,14 @@ super + ctrl + {Left,Down,Up,Right}
 
 # Custom move/resize
 alt + super + {Left,Down,Up,Right}
-	/home/s4vitar/.config/bspwm/scripts/bspwm_resize {west,south,north,east}'
+	/home/$USER/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+#Open Firefox
+super + shift + f
+	firejail /opt/firefox/firefox
+'
+
+
 ################################################################################################
 #################################### bspwm_resize  #############################################
 ################################################################################################
@@ -176,7 +183,7 @@ menu(){
 	echo "|   1) Instalacion de BSPWM y SXHKD             |"
 	echo "|   2) Instalacion Polybar                      |"
 	echo "|   3) Instalacion Picom y rofi                 |"
-	echo "|   4)                                          |"
+	echo "|   4) Instalacion Hack Nerd Fonts y Firefox    |"
 	echo "|   5) Exit                                     |"
 	echo "+-----------------------------------------------'"
 	echo "|"
@@ -221,7 +228,16 @@ menu(){
 				sleep 1 ; sudo apt update && sleep 1 && $paquete_picom
 				sleep 2 ; cd ~/Descargas/ && git clone https://github.com/ibhagwan/picom.git
 				sleep 2 ; cd ~/Descargas/picom/ && git submodule update --init --recursive && sleep 1 && meson --buildtype=release . build && sleep 1 && ninja -C build && sleep 1 && sudo ninja -C build install && echo -e "\n\t\t $BREDTEXTWHITE PICOM INSTALADO $FIMCOR \n" || echo -e "ERROR INSTALACION PICOM"
-				sleep 2 ; sudo apt install rofi && echo -e "\n\t\t $BREDTEXTWHITE ROFI INSTALADO CON SUCeSO $FIMCOR \n"
+				sleep 2 ; sudo apt install rofi && echo -e "\n\t\t $BREDTEXTWHITE ROFI INSTALADO CON SUCESO $FIMCOR \n"
+			;;
+		4) echo
+				wget -q https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -P ~/Descargas/HackNerdsFonts/
+				sleep 1 ; cd /usr/local/share/fonts && sudo mv /home/$USER/Descargas/HackNerdsFonts/Hack.zip . && sudo unzip Hack.zip && sleep 1 && sudo rm Hack.zip
+
+				cd / && sudo chown ${USER}:${USER} opt/
+				cd /opt/ && sleep 1 && mv /home/$USER/Descargas/firefox-*.bz2 . && sleep 1 && tar -xf firefox-*.bz2 && sleep 1 && rm firefox-*.bz2
+				sudo install firejail -y
+
 			;;
 		5) echo
 				clear
