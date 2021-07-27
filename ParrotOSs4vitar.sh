@@ -740,9 +740,8 @@ menu(){
 				sleep 2 ; cd ~/Descargas/ && git clone https://github.com/ibhagwan/picom.git
 				sleep 2 ; cd ~/Descargas/picom/ && git submodule update --init --recursive && sleep 1 && meson --buildtype=release . build && sleep 1 && ninja -C build && sleep 1 && sudo ninja -C build install && echo -e "\n\t\t $BREDTEXTWHITE PICOM INSTALADO $FIMCOR \n" || echo -e "ERROR INSTALACION PICOM"
 				sleep 2 ; mkdir ~/.config/picom && cp ~/Descargas/blue-sky/picom.conf ~/.config/picom/
-
-					#TERMINAR CONFIG PICOM 57:17 VIDEO
-
+				sleep 2 ; echo 'picom --experimental-backends &' >> ~/.config/bspwm/bspwmrc 
+				sleep 2 ; echo 'bspc config border_width 0' >> ~/.config/bspwm/bspwmrc
 
 				sleep 2 ; sudo apt install rofi && echo -e "\n\t\t $BREDTEXTWHITE ROFI INSTALADO CON SUCESO $FIMCOR \n"
 			;;
